@@ -5,4 +5,4 @@ def fibonacci(n)
     a,b=b,a+b
   end
 end
-fibonacci(5) {|a| puts a}
+fibonacci(1000) {|a| puts a}
