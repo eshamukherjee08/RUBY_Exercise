@@ -1,6 +1,7 @@
 arr = ['abc','def',1234,234,'abcd','x','mnop',5,'zZzZ','abcdef']
 class Array
-  def hashing  
+  def hashing
+     big = Hash.new  
      a = Hash.new
      k = self
      l = k.size
@@ -32,7 +33,32 @@ class Array
          end
        end
      end  
-     a.each{|per| print "#{per[0]} =>\[#{per[1]}\], "}
+     a.each{|per| 
+      if(per[0]%2 == 0)
+       if big.has_key?('even')
+         big['even'] << "\["
+         big['even'] << per[1]
+         big['even'] << "\]"
+       else
+         big['even'] = []
+         big['even'] << "\["
+         big['even'] << per[1]
+         big['even'] << "\]"
+       end
+      else
+        if big.has_key?('odd')
+           big['odd'] << "\["
+           big['odd'] << per[1]
+           big['odd'] << "\]"
+         else
+           big['odd'] = []
+           big['odd'] << "\["
+           big['odd'] << per[1]
+           big['odd'] << "\]"
+        end
+      end
+     }
+     big.each{|p| print "#{p[0]} =>\[#{p[1]}\], "}
   end
 end
 arr.hashing
