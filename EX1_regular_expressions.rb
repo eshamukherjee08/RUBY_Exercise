@@ -4,14 +4,17 @@ def FindCount(str,find)
   reg1 = Regexp.new(find)
   arr = str.scan(reg)
   len = arr.size
+  nstr = ""
+  for i in 0...len
   match = reg.match(str)
-  if match
-      nstr= "#{match.pre_match}(#{match[0]})#{match.post_match}"
-  else
-    print "no match"
+    if match
+      nstr= nstr+"#{match.pre_match}(#{match[0]})"
+      str = match.post_match.dup
+    elsif i == len
+      nstr = nstr + str
+    end
   end
-  new_str = nstr.gsub!(reg1 , "\(#{find}\)")
-  puts "The highlighted string is : #{new_str}\n"
+  puts "The highlighted string is : #{nstr}\n"
   print "Total Occurences found: #{len}"
 end
 FindCount("Can you can a can as a canner can can a can?","can")
