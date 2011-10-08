@@ -10,7 +10,7 @@ def area_overload(*args)
     b = args[1]
     c = args[2]
     s = (a+b+c)/2
-    x = s * (s-a) * (s-b) * (s-c)
+    x = (s * (s-a) * (s-b) * (s-c)).abs
     area = Math.sqrt(x).to_i
     print "The area of TRIANGLE is : #{area}\n"
   else
@@ -19,5 +19,5 @@ def area_overload(*args)
 end
 area_overload(1)
 area_overload(3,4)
-area_overload(3,4,5)
+area_overload(5,2,8)
 area_overload()
