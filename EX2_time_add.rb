@@ -2,19 +2,23 @@ def TimeAdd(*arg)
   reg = /^\d\d:\d\d:\d\d$/
   reg1 = /^\d\d$/
   h,m,s = 0,0,0
+  #print "("
   for i in 0...arg.size do
     t1 = arg[i]
     if(reg.match(t1))
+      #print "\"#{arg[i]}\","
       time1 = t1.split(":") 
       h = h+time1[0].to_i
       m = m+time1[1].to_i
       s = s+time1[2].to_i
     else
-      print "sorry wrong format entered!use (hh:mm:ss)\n"
+      print "sorry wrong format entered!use format to enter all time values as"
+      break
     end
   end
   total_sec = (h*3600)+(m*60)+s
   total = total_sec/3600
+  print ") -> "
   if(total > 23)
     day = total/24
     print "#{day} day & "
@@ -47,4 +51,4 @@ def TimeAdd(*arg)
     print "#{total_fsec}\n"
   end
 end
-TimeAdd("00:45:34","00:15:58","03:10:00","22:00:00") 
+TimeAdd("00:45:34","06:15:00","23:10:00","22:00:00") 
