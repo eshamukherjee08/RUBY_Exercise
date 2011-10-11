@@ -26,4 +26,4 @@ class Name
   end
 end
 p1 = Name.new
-p1.printt("Esha","Mukherjee")
+p1.printt("Esha")
